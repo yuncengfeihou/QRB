@@ -2,7 +2,7 @@
 import * as Constants from './constants.js';
 import { sharedState } from './state.js';
 import { createMenuElement } from './ui.js';
-import { createSettingsHtml } from './settings.js';
+import { createSettingsHtml, setupSettingsEventListeners } from './settings.js';
 import { setupEventListeners, handleQuickReplyClick } from './events.js';
 
 // 创建本地设置对象，如果全局对象不存在
@@ -185,6 +185,9 @@ function initializePlugin() {
 
         // Setup event listeners
         setupEventListeners();
+        
+        // 设置设置面板的事件监听器
+        setupSettingsEventListeners();
 
         console.log(`[${Constants.EXTENSION_NAME}] Initialization complete.`);
     } catch (err) {
